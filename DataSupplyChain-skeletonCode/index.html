@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='styles.css' rel='stylesheet' type='text/css' media='screen' />
+</head>
+
+<body>
+
+
+    <div id="demo">
+
+        <div id="controls">
+          <button id="ingest" onclick="Demo.ingest();">ingest</button>
+          <button id="deidentify" onclick="Demo.deidentify();">deidentify</button>
+          <button id="deduplicate" onclick="Demo.deduplicate();">deduplicate</button>
+          <button id="dataintegrity" onclick="Demo.dataintegrity();">dataintegrity</button>
+          <button id="prefordistribution" onclick="Demo.prefordistribution();">prefordistribution</button>
+          <button id="distribute" onclick="Demo.distribute();">distribute</button>
+        </div>
+    
+        <div id="diagram"><img src="images/diagram.JPG" alt=""></div>
+
+        <div id="notes">
+            <em>Data Supply Chain - Skeleton Code Demo</em>
+        </div>
+
+        <textarea id="output">
+    </textarea>
+
+    </div>
+
+    <script src='state-machine.js'></script>
+    <script src='demo.js'></script>
+</body>
+
+</html>

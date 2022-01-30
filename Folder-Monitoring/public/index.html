@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="demo">
+        <div id="controls">
+          <button id="ingest" onclick="Demo.ingest();">ingest</button>
+          <button id="deidentify" onclick="Demo.deidentify();">deidentify</button>
+          <button id="deduplicate" onclick="Demo.deduplicate();">deduplicate</button>
+          <button id="dataintegrity" onclick="Demo.dataintegrity();">dataintegrity</button>
+          <button id="prefordistribution" onclick="Demo.prefordistribution();">prefordistribution</button>
+          <button id="distribute" onclick="Demo.distribute();">distribute</button>
+        </div>
+    
+        <div id="diagram"><img src="images/diagram.JPG" alt=""></div>
+
+        <div id="notes">
+            <input type="file" id="csv" />
+        </div>
+
+        <textarea id="output">
+    </textarea>
+
+    </div>
+
+    <script src='state.js'></script>
+    <script src='state-machine.js'></script>
+    <script>
+        const file = document.getElementById('csv')
+        readFile = function(){
+            var reader = new FileReader()
+            reader.onload = function(){
+                const data = {
+                    name:file.files[0].name,
+                    data:reader.result
+                }
+
+                fetch("http://localhost:4000/create", {
+                    method:"POST",
+                    headers:{
+                        "Content-Type":"application/json",
+                    },
+                    body:data
+                }).then((response)=>console.log(response))
+            }
+            reader.readAsBinaryString(file.files[0])
+            console.log(file.files[0].name)
+        }
+
+        file.addEventListener('change', readFile)
+    </script>
+</body>
+
+</html>

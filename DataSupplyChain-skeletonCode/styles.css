@@ -1,0 +1,10 @@
+#demo { width: 915px; height:551px; margin: 0 auto; text-align: center; }
+
+#controls { text-align: center; }
+
+#demo #notes   { margin-bottom: 1em; }
+#demo #diagram { width: 915px; height:551px; }
+#demo #output  { width: 100%;  height: 30em;  }
+
+
+.preload { position: absolute; left: -1000px; }
